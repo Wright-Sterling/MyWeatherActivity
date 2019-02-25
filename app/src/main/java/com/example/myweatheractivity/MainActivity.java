@@ -1,27 +1,17 @@
 package com.example.myweatheractivity;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
 import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.myweatheractivity.R;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -44,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
     // Request method GET. The value must be uppercase.
     private static final String REQUEST_METHOD_GET = "GET";
 
-    // Request web page url input text box.
-    private EditText requestUrlEditor = null;
+    // Request weather input text box.
+    private EditText weatherZipEntry = null;
 
     // Send http request button.
-    private Button requestUrlButton = null;
+    private Button requestWeatherButton = null;
 
     // TextView to display server returned page html text.
     private TextView responseTextView = null;
@@ -56,21 +46,25 @@ public class MainActivity extends AppCompatActivity {
     // This handler used to listen to child thread show return page html text message and display those text in responseTextView.
     private Handler uiUpdater = null;
 
+    private static final String AP_ID = "123e236852641b9b3bfd755ffa553566";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_weather_activity);
+        setContentView(R.layout.activity_main);
 
-        setTitle("dev2qa.com - HttpURLConnection Example");
+        setTitle("Get Weather by Zip Code");
 
         // Init app ui controls.
         initControls();
 
-        // When click request url button.
-        requestUrlButton.setOnClickListener(new View.OnClickListener() {
+        // When click request weather button.
+        requestWeatherButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String reqUrl =  requestUrlEditor.getText().toString();
+                String zip = weatherZipEntry.getText().toString();
+                String reqUrl = "https://api.openweathermap.org/data/2.5/weather?zip=" + zip
+                        +"&units=imperial&APPID=" + AP_ID;
                 if(!TextUtils.isEmpty(reqUrl))
                 {
                     if(URLUtil.isHttpUrl(reqUrl) || URLUtil.isHttpsUrl(reqUrl))
@@ -92,14 +86,14 @@ public class MainActivity extends AppCompatActivity {
     // Initialize app controls.
     private void initControls()
     {
-        if(requestUrlEditor == null)
+        if(weatherZipEntry == null)
         {
-            requestUrlEditor = (EditText)findViewById(R.id.http_url_editor);
+            weatherZipEntry = (EditText)findViewById(R.id.weatherZipEntry);
         }
 
-        if(requestUrlButton == null)
+        if(requestWeatherButton == null)
         {
-            requestUrlButton = (Button)findViewById(R.id.http_url_request_button);
+            requestWeatherButton = (Button)findViewById(R.id.request_weather_button);
         }
 
         if(responseTextView == null)
