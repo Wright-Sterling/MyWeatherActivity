@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -26,14 +28,136 @@
             android:text="Request Weather" />
     </LinearLayout>
 
-    <ScrollView
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/lbl_description"
+            android:layout_width="140dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Description:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="64dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:text="waiting..."
+            app:layout_constraintStart_toEndOf="@+id/lbl_description"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lbl_temperature"
+            android:layout_width="140dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Current temperature:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_description" />
+
+        <TextView
+            android:id="@+id/temperature"
+            android:layout_width="65dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:text="waiting..."
+            app:layout_constraintStart_toEndOf="@+id/lbl_temperature"
+            app:layout_constraintTop_toBottomOf="@+id/description" />
+
+        <TextView
+            android:id="@+id/lbl_humidity"
+            android:layout_width="140dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Current humidity:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_temperature" />
+
+        <TextView
+            android:id="@+id/humidity"
+            android:layout_width="65dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:text="waiting..."
+            app:layout_constraintStart_toEndOf="@+id/lbl_humidity"
+            app:layout_constraintTop_toBottomOf="@+id/temperature" />
+
+        <TextView
+            android:id="@+id/lbl_high_temp"
+            android:layout_width="140dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Today's high:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_humidity" />
+
+        <TextView
+            android:id="@+id/high_temp"
+            android:layout_width="65dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:text="waiting..."
+            app:layout_constraintStart_toEndOf="@+id/lbl_high_temp"
+            app:layout_constraintTop_toBottomOf="@+id/humidity" />
+
+
+        <TextView
+            android:id="@+id/lbl_low_temp"
+            android:layout_width="140dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Today's low:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_high_temp" />
+
+        <TextView
+            android:id="@+id/low_temp"
+            android:layout_width="65dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:text="waiting..."
+            app:layout_constraintStart_toEndOf="@+id/lbl_low_temp"
+            app:layout_constraintTop_toBottomOf="@+id/high_temp" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView2">
+
+        <TextView
             android:id="@+id/my_weather_activity_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_conversion_absoluteHeight="19dp"
+            tools:layout_editor_absoluteY="189dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_conversion_absoluteWidth="411dp" />
 
     </ScrollView>
 

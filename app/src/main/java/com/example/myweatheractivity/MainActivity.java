@@ -46,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
     // TextView to display server returned page html text.
     private TextView responseTextView = null;
 
+    // TextViews to display current weather from Weather object.
+    private TextView descriptionTextView = null;
+    private TextView temperatureTextView = null;
+    private TextView humidityTextView = null;
+    private TextView highTempTextView = null;
+    private TextView lowTempTextView = null;
+
     // This handler used to listen to child thread show return page html text message and display those text in responseTextView.
     private Handler uiUpdater = null;
 
@@ -100,6 +107,31 @@ public class MainActivity extends AppCompatActivity {
             requestWeatherButton = (Button)findViewById(R.id.request_weather_button);
         }
 
+        if(descriptionTextView == null)
+        {
+            descriptionTextView = (TextView)findViewById(R.id.description);
+        }
+
+        if(temperatureTextView == null)
+        {
+            temperatureTextView = (TextView)findViewById(R.id.temperature);
+        }
+
+        if(humidityTextView == null)
+        {
+            humidityTextView = (TextView)findViewById(R.id.humidity);
+        }
+
+        if(highTempTextView == null)
+        {
+            highTempTextView = (TextView)findViewById(R.id.high_temp);
+        }
+
+        if(lowTempTextView == null)
+        {
+            lowTempTextView = (TextView)findViewById(R.id.low_temp);
+        }
+
         if(responseTextView == null)
         {
             responseTextView = (TextView)findViewById(R.id.my_weather_activity_text_view);
@@ -120,6 +152,11 @@ public class MainActivity extends AppCompatActivity {
                             String responseText = bundle.getString(KEY_RESPONSE_TEXT);
                             Weather currentWeather = new Weather(responseText);
                             JSONObject weatherJson = (JSONObject) currentWeather.parseWeather();
+                            descriptionTextView.setText(currentWeather.getDescription());
+                            temperatureTextView.setText(currentWeather.getCurrentTemperature());
+                            humidityTextView.setText(currentWeather.getCurrentHumidity());
+                            highTempTextView.setText(currentWeather.getTodayHighTemp());
+                            lowTempTextView.setText(currentWeather.getTodayLowTemp());
                             responseTextView.setText(responseText);
                         }
                     }
