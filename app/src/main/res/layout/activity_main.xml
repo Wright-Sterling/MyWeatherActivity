@@ -29,6 +29,7 @@
     </LinearLayout>
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -143,22 +144,20 @@
             app:layout_constraintStart_toEndOf="@+id/lbl_low_temp"
             app:layout_constraintTop_toBottomOf="@+id/high_temp" />
 
-    </android.support.constraint.ConstraintLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/scrollView2">
-
         <TextView
             android:id="@+id/my_weather_activity_text_view"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:layout_conversion_absoluteHeight="19dp"
-            tools:layout_editor_absoluteY="189dp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_conversion_absoluteWidth="411dp" />
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:text="JSON Response..."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/low_temp" />
 
-    </ScrollView>
+    </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>
