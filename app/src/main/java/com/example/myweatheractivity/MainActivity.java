@@ -1,5 +1,6 @@
 package com.example.myweatheractivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -84,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Initialize app controls.
+    @SuppressLint("HandlerLeak")
     private void initControls()
     {
         if(weatherZipEntry == null)
@@ -114,6 +118,8 @@ public class MainActivity extends AppCompatActivity {
                         if(bundle != null)
                         {
                             String responseText = bundle.getString(KEY_RESPONSE_TEXT);
+                            Weather currentWeather = new Weather(responseText);
+                            JSONObject weatherJson = (JSONObject) currentWeather.parseWeather();
                             responseTextView.setText(responseText);
                         }
                     }
