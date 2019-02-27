@@ -14,18 +14,20 @@
 
         <EditText
             android:id="@+id/weatherZipEntry"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Enter a Zip Code"
+            android:hint="@string/enter_a_zip_code"
+            android:importantForAutofill="no"
             android:inputType="number"
-            tools:digits="5" />
+            tools:digits="5"
+            tools:targetApi="o" />
 
         <Button
             android:id="@+id/request_weather_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Request Weather" />
+            android:text="@string/request_weather" />
     </LinearLayout>
 
     <android.support.constraint.ConstraintLayout
@@ -40,7 +42,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:text="Description:"
+            android:text="@string/description"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,7 +53,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
-            android:text="waiting..."
+            android:text="@string/tv_description"
             app:layout_constraintStart_toEndOf="@+id/lbl_description"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,7 +64,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:text="Current temperature:"
+            android:text="@string/current_temperature"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lbl_description" />
 
@@ -73,7 +75,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
-            android:text="waiting..."
+            android:text="@string/tv_temperature"
             app:layout_constraintStart_toEndOf="@+id/lbl_temperature"
             app:layout_constraintTop_toBottomOf="@+id/description" />
 
@@ -84,7 +86,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:text="Current humidity:"
+            android:text="@string/current_humidity"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lbl_temperature" />
 
@@ -95,7 +97,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
-            android:text="waiting..."
+            android:text="@string/tv_humidity"
             app:layout_constraintStart_toEndOf="@+id/lbl_humidity"
             app:layout_constraintTop_toBottomOf="@+id/temperature" />
 
@@ -106,7 +108,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:text="Today's high:"
+            android:text="@string/today_s_high"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lbl_humidity" />
 
@@ -117,7 +119,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
-            android:text="waiting..."
+            android:text="@string/tv_high_temp"
             app:layout_constraintStart_toEndOf="@+id/lbl_high_temp"
             app:layout_constraintTop_toBottomOf="@+id/humidity" />
 
@@ -129,7 +131,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:text="Today's low:"
+            android:text="@string/today_s_low"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lbl_high_temp" />
 
@@ -140,9 +142,25 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
-            android:text="waiting..."
+            android:text="@string/tv_low_temp"
             app:layout_constraintStart_toEndOf="@+id/lbl_low_temp"
             app:layout_constraintTop_toBottomOf="@+id/high_temp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="128dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:text="@string/raw_json_response"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/low_temp" />
 
         <TextView
             android:id="@+id/my_weather_activity_text_view"
@@ -150,13 +168,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:text="JSON Response..."
+            android:text="@string/tv_description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/low_temp" />
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     </android.support.constraint.ConstraintLayout>
 

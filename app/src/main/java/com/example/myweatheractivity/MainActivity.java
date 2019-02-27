@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     // This handler used to listen to child thread show return page html text message and display those text in responseTextView.
     private Handler uiUpdater = null;
 
+    // This should really be stored separately and not included in public repo
     private static final String AP_ID = "123e236852641b9b3bfd755ffa553566";
 
     @Override
@@ -182,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
                 BufferedReader bufReader = null;
 
                 // Save server response text.
-                StringBuffer readTextBuf = new StringBuffer();
+                StringBuilder readTextBuf = new StringBuilder();
 
                 try {
                     // Create a URL object use page url.

@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">MyWeatherActivity</string>
     <string name="action_settings">Settings</string>
+    <string name="enter_a_zip_code">Enter a Zip Code</string>
+    <string name="request_weather">Request Weather</string>
+    <string name="description">Description:</string>
+    <string name="tv_description">waiting</string>
+    <string name="current_temperature">Current temperature:</string>
+    <string name="tv_temperature">waiting</string>
+    <string name="current_humidity">Current humidity:</string>
+    <string name="tv_humidity">waiting</string>
+    <string name="today_s_high">Today\'s high:</string>
+    <string name="tv_high_temp">waiting</string>
+    <string name="today_s_low">Today\'s low:</string>
+    <string name="tv_low_temp">waiting</string>
+    <string name="json_response">JSON Response</string>
+    <string name="raw_json_response">Raw JSON Response</string>
 </resources>

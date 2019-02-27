@@ -6,7 +6,7 @@ import org.json.JSONObject;
 
 public class Weather {
 
-    String weatherInJson;
+    private String weatherInJson;
     private String description;
     private String currentTemperature;
     private String currentHumidity;
@@ -19,7 +19,7 @@ public class Weather {
         System.out.println(weatherInJson);
     }
     
-    public Object parseWeather () {
+    Object parseWeather() {
         JSONObject weatherJson = null;
         if (weatherInJson != null) {
             try {
@@ -31,7 +31,8 @@ public class Weather {
         }
 
         try {
-                JSONArray currentWeatherJson = weatherJson.getJSONArray("weather");
+            assert weatherJson != null;
+            JSONArray currentWeatherJson = weatherJson.getJSONArray("weather");
                 JSONObject currentDescription = currentWeatherJson.getJSONObject(0);
                 this.description = (String) currentDescription.get("main");
                 JSONObject currentWeather = weatherJson.getJSONObject("main");
@@ -46,7 +47,7 @@ public class Weather {
         return weatherJson; // Not used in current version but might be useful for testing
     }
 
-    public String getDescription() {
+    String getDescription() {
         return description;
     }
 
@@ -54,7 +55,7 @@ public class Weather {
         this.description = description;
     }
 
-    public String getCurrentTemperature() {
+    String getCurrentTemperature() {
         return currentTemperature;
     }
 
@@ -62,7 +63,7 @@ public class Weather {
         this.currentTemperature = currentTemperature;
     }
 
-    public String getCurrentHumidity() {
+    String getCurrentHumidity() {
         return currentHumidity;
     }
 
@@ -70,7 +71,7 @@ public class Weather {
         this.currentHumidity = currentHumidity;
     }
 
-    public String getTodayLowTemp() {
+    String getTodayLowTemp() {
         return todayLowTemp;
     }
 
@@ -78,7 +79,7 @@ public class Weather {
         this.todayLowTemp = todayLowTemp;
     }
 
-    public String getTodayHighTemp() {
+    String getTodayHighTemp() {
         return todayHighTemp;
     }
 
